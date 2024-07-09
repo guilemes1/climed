@@ -1,4 +1,4 @@
-package com.app.cinema.Entity;
+package com.app.climed.Entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

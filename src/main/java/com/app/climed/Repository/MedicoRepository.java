@@ -1,4 +1,4 @@
-package com.app.cinema.Repository;
+package com.app.climed.Repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import com.app.cinema.Entity.Medico;
+import com.app.climed.Entity.Medico;
 
 import jakarta.persistence.Tuple;
 

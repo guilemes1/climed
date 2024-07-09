@@ -1,10 +1,10 @@
-package com.app.cinema.Menus;
+package com.app.climed.Menus;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.app.cinema.Entity.Paciente;
-import com.app.cinema.Repository.PacienteRepository;
+import com.app.climed.Entity.Paciente;
+import com.app.climed.Repository.PacienteRepository;
 
 // Classe para representar o menu de cadastro de filmes
 @Component

@@ -1,4 +1,4 @@
-package com.app.cinema.Menus;
+package com.app.climed.Menus;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -8,9 +8,9 @@ import java.time.format.DateTimeParseException;
 import java.util.Date;
 import java.util.Scanner;
 
-import com.app.cinema.ClimedApplication;
-import com.app.cinema.Entity.DiaSemana;
-import com.app.cinema.Entity.FormaDePagamento;
+import com.app.climed.ClimedApplication;
+import com.app.climed.Entity.DiaSemana;
+import com.app.climed.Entity.FormaDePagamento;
 
 // Classe abstrata para representar um menu
 public abstract class Menu {

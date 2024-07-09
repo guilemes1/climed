@@ -1,16 +1,16 @@
-package com.app.cinema.Menus;
+package com.app.climed.Menus;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.app.cinema.Entity.Medico;
-import com.app.cinema.Entity.Especialidade;
-import com.app.cinema.Entity.ExerceEsp;
-import com.app.cinema.Repository.MedicoRepository;
-import com.app.cinema.Repository.EspecialidadeRepository;
-import com.app.cinema.Repository.ExerceEspRepository;
+import com.app.climed.Entity.Especialidade;
+import com.app.climed.Entity.ExerceEsp;
+import com.app.climed.Entity.Medico;
+import com.app.climed.Repository.EspecialidadeRepository;
+import com.app.climed.Repository.ExerceEspRepository;
+import com.app.climed.Repository.MedicoRepository;
 
 // Classe para representar o menu de cadastro de pessoas
 @Component

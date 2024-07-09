@@ -1,4 +1,4 @@
-package com.app.cinema.Menus;
+package com.app.climed.Menus;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,16 +6,15 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.app.cinema.Entity.Consulta;
-import com.app.cinema.Entity.Paciente;
-import com.app.cinema.Entity.Especialidade;
-import com.app.cinema.Repository.ConsultaRepository;
-import com.app.cinema.Repository.PacienteRepository;
+import com.app.climed.Entity.Consulta;
+import com.app.climed.Entity.Especialidade;
+import com.app.climed.Entity.Paciente;
+import com.app.climed.Repository.ConsultaRepository;
+import com.app.climed.Repository.EspecialidadeRepository;
+import com.app.climed.Repository.MedicoRepository;
+import com.app.climed.Repository.PacienteRepository;
 
 import jakarta.persistence.Tuple;
-
-import com.app.cinema.Repository.MedicoRepository;
-import com.app.cinema.Repository.EspecialidadeRepository;
 
 // Classe para representar o menu de cadastro de consultas
 @Component

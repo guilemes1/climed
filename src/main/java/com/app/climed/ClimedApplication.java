@@ -1,4 +1,4 @@
-package com.app.cinema;
+package com.app.climed;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,7 +7,8 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.event.EventListener;
 
-import com.app.cinema.Menus.MainMenu;
+import com.app.climed.Menus.MainMenu;
+
 import java.util.Scanner;
 
 // Classe para representar a aplicação

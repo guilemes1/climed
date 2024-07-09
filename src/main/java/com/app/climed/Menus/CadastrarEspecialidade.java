@@ -1,10 +1,10 @@
-package com.app.cinema.Menus;
+package com.app.climed.Menus;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.app.cinema.Entity.Especialidade;
-import com.app.cinema.Repository.EspecialidadeRepository;
+import com.app.climed.Entity.Especialidade;
+import com.app.climed.Repository.EspecialidadeRepository;
 
 @Component
 public class CadastrarEspecialidade extends Menu {

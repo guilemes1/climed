@@ -1,14 +1,14 @@
-package com.app.cinema.Menus;
+package com.app.climed.Menus;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.app.cinema.Entity.Agenda;
-import com.app.cinema.Entity.Medico;
-import com.app.cinema.Repository.AgendaRepository;
-import com.app.cinema.Repository.MedicoRepository;
+import com.app.climed.Entity.Agenda;
+import com.app.climed.Entity.Medico;
+import com.app.climed.Repository.AgendaRepository;
+import com.app.climed.Repository.MedicoRepository;
 
 // Classe para representar o menu de cadastro de prêmios
 @Component

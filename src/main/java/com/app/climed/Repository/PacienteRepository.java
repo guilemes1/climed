@@ -1,10 +1,10 @@
-package com.app.cinema.Repository;
+package com.app.climed.Repository;
 
 import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.app.cinema.Entity.Paciente;
+import com.app.climed.Entity.Paciente;
 
 // Interface para representar o Repositorio da tabela Filme
 public interface PacienteRepository extends CrudRepository<Paciente, Integer>{
