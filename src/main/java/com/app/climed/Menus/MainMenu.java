@@ -24,6 +24,9 @@ public class MainMenu extends Menu {
     @Autowired
     private CadastrarConsulta cadastrarConsulta;
 
+    @Autowired
+    private ListarConsultas listarConsultas;
+
     // Método para executar o menu principal
     public void runApp() {
         while (runApp) {
@@ -55,6 +58,9 @@ public class MainMenu extends Menu {
             case 5:
                 cadastrarConsulta.runApp();
                 return true;
+            case 6:
+                listarConsultas.runApp();
+                return true;
             default:
                 return true;
         }
@@ -69,7 +75,7 @@ public class MainMenu extends Menu {
         System.out.println("3 - Cadastrar Especialidade");
         System.out.println("4 - Cadastrar Agenda");
         System.out.println("5 - Cadastrar Consulta");
-        System.out.println("8 - Listar Consultas");
+        System.out.println("6 - Listar Consultas");
         System.out.println("0 - Sair");
     }
 }

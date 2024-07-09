@@ -33,6 +33,6 @@ public class Agenda {
     private LocalTime horaFim;
 
     @Column(name="ID_Medico", nullable = false)
-    private Integer ID_Medico;
+    private Integer IDMedico;
 }
 

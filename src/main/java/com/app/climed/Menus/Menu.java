@@ -1,11 +1,10 @@
 package com.app.climed.Menus;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.Date;
 import java.util.Scanner;
 
 import com.app.climed.ClimedApplication;
@@ -110,16 +109,15 @@ public abstract class Menu {
     }
 
     // Método para ler um Date do usuário
-    protected Date lerDate() {
+    protected LocalDate lerDate() {
         // Formato esperado: dd/MM/yyyy (exemplo: 25/12/2023)
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         Scanner scanner = ClimedApplication.getScanner();
         try {
             String input = scanner.nextLine();
-            formatter.setLenient(false);
-            Date date = formatter.parse(input);
+            LocalDate date = LocalDate.parse(input, formatter);
             return date;
-        } catch (ParseException e) {
+        } catch (DateTimeParseException e) {
             System.out.println("Formato de data inválido! Por favor, use o formato dd/MM/yyyy.");
             return null;
         } catch (Exception e) {
@@ -134,7 +132,7 @@ public abstract class Menu {
         Scanner scanner = ClimedApplication.getScanner();
         try {
             String input = scanner.nextLine();
-            DiaSemana dia = DiaSemana.valueOf(input.toUpperCase());
+            DiaSemana dia = DiaSemana.fromString(input);
             return dia;
         } catch (IllegalArgumentException e) {
             System.out.println("Dia da semana inválido! Por favor, insira um valor válido.");
@@ -159,6 +157,27 @@ public abstract class Menu {
         } catch (Exception e) {
             System.out.println("Erro ao ler dia da semana!");
             return null;
+        }
+    }
+
+    protected DiaSemana diaDaSemanaParaEnum(DayOfWeek diaDaSemana) {
+        switch (diaDaSemana) {
+            case MONDAY:
+                return DiaSemana.SEGUNDA_FEIRA;
+            case TUESDAY:
+                return DiaSemana.TERCA_FEIRA;
+            case WEDNESDAY:
+                return DiaSemana.QUARTA_FEIRA;
+            case THURSDAY:
+                return DiaSemana.QUINTA_FEIRA;
+            case FRIDAY:
+                return DiaSemana.SEXTA_FEIRA;
+            case SATURDAY:
+                return DiaSemana.SABADO;
+            case SUNDAY:
+                return DiaSemana.DOMINGO;
+            default:
+                throw new IllegalArgumentException("Dia da semana inválido: " + diaDaSemana);
         }
     }
 

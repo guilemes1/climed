@@ -61,7 +61,7 @@ public class CadastrarAgenda extends Menu {
 
         if (medicoRepository.existsByCrm(crm)) {
             Integer idMedico = buscarIdPorCrm(crm);
-            agenda.setID_Medico(idMedico);
+            agenda.setIDMedico(idMedico);
         }
         else {
             System.out.println("CRM do médico não encontrado");
@@ -70,7 +70,7 @@ public class CadastrarAgenda extends Menu {
             return;
         }
 
-        System.out.print("Digite o dia da semana (ex: Segunda): ");
+        System.out.print("Digite o dia da semana (ex: Segunda-feira): ");
         agenda.setDiaSemana(lerDiaSemana());
         System.out.print("Digite o horário de inicio do expediente neste dia no formato hh:mm:ss: ");
         agenda.setHoraInicio(lerLocalTime());

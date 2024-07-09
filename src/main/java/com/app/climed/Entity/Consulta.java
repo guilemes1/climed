@@ -1,8 +1,7 @@
 package com.app.climed.Entity;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -36,7 +35,7 @@ public class Consulta {
 
     @Temporal(TemporalType.DATE)
     @Column(name="Data", nullable = true)
-    private Date data;
+    private LocalDate data;
 
     @Column(name="HoraInicioConsulta", nullable = false)
     private LocalTime horaInicioConsulta;

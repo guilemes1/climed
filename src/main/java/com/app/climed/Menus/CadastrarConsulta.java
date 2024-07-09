@@ -1,5 +1,7 @@
 package com.app.climed.Menus;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -7,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.app.climed.Entity.Consulta;
+import com.app.climed.Entity.DiaSemana;
 import com.app.climed.Entity.Especialidade;
 import com.app.climed.Entity.Paciente;
+import com.app.climed.Repository.AgendaRepository;
 import com.app.climed.Repository.ConsultaRepository;
 import com.app.climed.Repository.EspecialidadeRepository;
 import com.app.climed.Repository.MedicoRepository;
@@ -34,6 +38,9 @@ public class CadastrarConsulta extends Menu {
 
     @Autowired
     private EspecialidadeRepository especialidadeRepository;
+
+    @Autowired
+    private AgendaRepository agendaRepository;
 
     public Integer buscarIdPorCpf(String cpf) {
         Optional<Paciente> paciente = pacienteRepository.findByCpf(cpf);
@@ -102,19 +109,36 @@ public class CadastrarConsulta extends Menu {
             consulta.setID_Especialidade(idEspecialidade);
         }
 
-        System.out.println("Selecione o ID do médico especialista:\n");
         List<Tuple> medicosEspecialistas = medicoRepository.medicosEspecialistas(idEspecialidade);
-        //System.out.println("Listando os Atores nominados e premiados pelo premio " + premio + ":\n");
-        System.out.println("ID do médico | Nome do Médico | CRM");
+        System.out.println("\nID do médico | Nome do Médico | CRM");
         for (Tuple medico : medicosEspecialistas) {
             System.out.println(medico.get(0, Integer.class) + " | " + (medico.get(1, String.class)) + " | " + (medico.get(2, String.class)));
         }
 
+        System.out.print("\nSelecione o ID do médico especialista: ");
         Integer idMedico = lerInteger();
         consulta.setID_Medico(idMedico);
 
         System.out.print("Digite a data da consulta no formato dd/MM/yyyy: ");
-        consulta.setData(lerDate());
+        LocalDate date = lerDate();
+
+        if (date != null) {
+            DayOfWeek diaDaSemana = date.getDayOfWeek();
+            DiaSemana dia = diaDaSemanaParaEnum(diaDaSemana);
+
+            if( agendaRepository.existsByIDMedicoAndDiaSemana(idMedico, dia) ) {
+                consulta.setData(date);
+            } else {
+                System.out.println("Médico não atende no dia solicitado! (" + dia + ")");
+                System.out.print("Pressione enter para continuar...");
+                lerString();
+                return;
+            }
+        } else {
+            System.out.print("Pressione enter para continuar...");
+            lerString();
+            return;
+        }
 
         System.out.print("Digite o horário de inicio da consulta no formato hh:mm:ss: ");
         consulta.setHoraInicioConsulta(lerLocalTime());
