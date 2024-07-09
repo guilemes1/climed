@@ -54,7 +54,7 @@ public class CadastrarConsulta extends Menu {
         }
     }
 
-    // Método para executar o menu de opções do menu de cadastro de eventos
+    // Método para executar o menu de opções do menu de cadastro de consultas
     @Override
     protected Boolean menuDeOpcoes() {
         mostrarOpcoes();
@@ -70,7 +70,7 @@ public class CadastrarConsulta extends Menu {
         }
     }
 
-    // Método para cadastrar um evento
+    // Método para cadastrar uma consulta
     private void cadastrarConsulta() {
         Consulta consulta = new Consulta();
         System.out.print("Digite o CPF do paciente: ");
@@ -143,7 +143,7 @@ public class CadastrarConsulta extends Menu {
         }
     }
 
-    // Método para mostrar as opções do menu de cadastro de eventos
+    // Método para mostrar as opções do menu de cadastro de consultas
     @Override
     protected void mostrarOpcoes() {
         System.out.println("Bem vindo ao Menu de Cadastro de Consultas!");

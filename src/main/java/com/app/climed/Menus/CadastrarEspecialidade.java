@@ -11,7 +11,7 @@ public class CadastrarEspecialidade extends Menu {
 
     private Boolean runApp = true;
 
-    // Repositório para acessar a tabela Pessoa
+    // Repositório para acessar a tabela Especialidade
     @Autowired
     private EspecialidadeRepository especialidadeRepository;
 
@@ -24,7 +24,7 @@ public class CadastrarEspecialidade extends Menu {
         }
     }
 
-    // Método para executar o menu de opções do menu de cadastro de pessoas
+    // Método para executar o menu de opções do menu de cadastro de especialidades
     @Override
     protected Boolean menuDeOpcoes() {
         mostrarOpcoes();
@@ -40,7 +40,7 @@ public class CadastrarEspecialidade extends Menu {
         }
     }
 
-    // Método para cadastrar uma pessoa
+    // Método para cadastrar uma especialidade
     private void cadastrarEspecialidade() {
         Especialidade especialidade = new Especialidade();
         System.out.print("Digite o nome da especialidade: ");
@@ -61,7 +61,7 @@ public class CadastrarEspecialidade extends Menu {
         }
     }
 
-    // Método para mostrar as opções do menu de cadastro de pessoas
+    // Método para mostrar as opções do menu de cadastro de especialidades
     @Override
     protected void mostrarOpcoes() {
         System.out.println("Bem vindo ao Menu de Cadastro de Especialidade!");

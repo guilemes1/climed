@@ -11,7 +11,7 @@ import com.app.climed.Entity.Medico;
 
 import jakarta.persistence.Tuple;
 
-// Interface para representar o Repositorio da tabela Pessoa
+// Interface para representar o Repositorio da tabela Medico
 public interface MedicoRepository extends CrudRepository<Medico, Integer>{
     boolean existsByCrm(String crm);
     Optional<Medico> findByCrm(String crm);

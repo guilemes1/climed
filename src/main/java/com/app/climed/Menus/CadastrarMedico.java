@@ -12,13 +12,13 @@ import com.app.climed.Repository.EspecialidadeRepository;
 import com.app.climed.Repository.ExerceEspRepository;
 import com.app.climed.Repository.MedicoRepository;
 
-// Classe para representar o menu de cadastro de pessoas
+// Classe para representar o menu de cadastro de médicos
 @Component
 public class CadastrarMedico extends Menu {
 
     private Boolean runApp = true;
 
-    // Repositório para acessar a tabela Pessoa
+    // Repositório para acessar a tabela Medico
     @Autowired
     private MedicoRepository medicoRepository;
 
@@ -38,7 +38,7 @@ public class CadastrarMedico extends Menu {
         return especialidade.map(Especialidade::getID_Especialidade).orElse(null);
     }
 
-    // Método para executar o menu de cadastro de pessoas
+    // Método para executar o menu de cadastro de medicos
     @Override
     public void runApp() {
         while (runApp) {
@@ -47,7 +47,7 @@ public class CadastrarMedico extends Menu {
         }
     }
 
-    // Método para executar o menu de opções do menu de cadastro de pessoas
+    // Método para executar o menu de opções do menu de cadastro de medicos
     @Override
     protected Boolean menuDeOpcoes() {
         mostrarOpcoes();
@@ -63,7 +63,7 @@ public class CadastrarMedico extends Menu {
         }
     }
 
-    // Método para cadastrar uma pessoa
+    // Método para cadastrar um médico
     private void cadastrarMedico() {
         Medico medico = new Medico();
         System.out.print("Digite o nome medico: ");
@@ -100,7 +100,6 @@ public class CadastrarMedico extends Menu {
         }
 
         try {
-            //medicoRepository.save(medico);
             System.out.println("Medico cadastrado com sucesso!");
             System.out.print("Pressione enter para continuar...");
             lerString();
@@ -111,7 +110,7 @@ public class CadastrarMedico extends Menu {
         }
     }
 
-    // Método para mostrar as opções do menu de cadastro de pessoas
+    // Método para mostrar as opções do menu de cadastro de médicos
     @Override
     protected void mostrarOpcoes() {
         System.out.println("Bem vindo ao Menu de Cadastro de Medico!");

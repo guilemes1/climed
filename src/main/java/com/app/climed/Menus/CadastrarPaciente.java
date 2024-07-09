@@ -12,11 +12,11 @@ public class CadastrarPaciente extends Menu {
 
     private Boolean runApp = true;
 
-    // Repositório para acessar a tabela Filme
+    // Repositório para acessar a tabela Paciente
     @Autowired
     private PacienteRepository pacienteRepository;
 
-    // Método para executar o menu de cadastro de filmes
+    // Método para executar o menu de cadastro de pacientes
     @Override
     public void runApp() {
         while (runApp) {
@@ -25,7 +25,7 @@ public class CadastrarPaciente extends Menu {
         }
     }
 
-    // Método para executar o menu de opções do menu de cadastro de filmes
+    // Método para executar o menu de opções do menu de cadastro de pacientes
     @Override
     protected Boolean menuDeOpcoes() {
         mostrarOpcoes();
@@ -41,7 +41,7 @@ public class CadastrarPaciente extends Menu {
         }
     }
 
-    // Método para cadastrar um filme
+    // Método para cadastrar um paciente
     private void cadastrarPaciente() {
         Paciente paciente = new Paciente();
         System.out.print("Digite o nome do Paciente: ");
@@ -62,7 +62,7 @@ public class CadastrarPaciente extends Menu {
         }
     }
 
-    // Método para mostrar as opções do menu de cadastro de filmes
+    // Método para mostrar as opções do menu de cadastro de pacientes
     @Override
     protected void mostrarOpcoes() {
         System.out.println("Bem vindo ao Menu de Cadastro de Pacientes!");

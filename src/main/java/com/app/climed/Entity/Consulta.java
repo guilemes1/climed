@@ -15,7 +15,7 @@ import jakarta.persistence.TemporalType;
 import lombok.Getter;
 import lombok.Setter;
 
-// Classe para representar a tabela Evento
+// Classe para representar a tabela Consulta
 @Entity
 @Getter
 @Setter

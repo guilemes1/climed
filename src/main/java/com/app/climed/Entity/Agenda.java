@@ -12,7 +12,7 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-// Classe para representar a tabela Premio
+// Classe para representar a tabela Agenda
 @Entity
 @Getter
 @Setter

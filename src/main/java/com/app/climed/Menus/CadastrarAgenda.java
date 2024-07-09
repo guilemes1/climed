@@ -10,7 +10,7 @@ import com.app.climed.Entity.Medico;
 import com.app.climed.Repository.AgendaRepository;
 import com.app.climed.Repository.MedicoRepository;
 
-// Classe para representar o menu de cadastro de prêmios
+// Classe para representar o menu de cadastro da agenda dos médicos
 @Component
 public class CadastrarAgenda extends Menu {
 
@@ -28,7 +28,7 @@ public class CadastrarAgenda extends Menu {
         return medico.map(Medico::getID_Medico).orElse(null);
     }
 
-    // Método para executar o menu de cadastro de prêmios
+    // Método para executar o menu de cadastro de agenda
     @Override
     public void runApp() {
         while (runApp) {
@@ -37,7 +37,7 @@ public class CadastrarAgenda extends Menu {
         }
     }
 
-    // Método para executar o menu de opções do menu de cadastro de prêmios
+    // Método para executar o menu de opções do menu de cadastro de agenda
     @Override
     protected Boolean menuDeOpcoes() {
         mostrarOpcoes();
@@ -53,7 +53,7 @@ public class CadastrarAgenda extends Menu {
         }
     }
 
-    // Método para cadastrar um prêmio
+    // Método para cadastrar uma agenda
     private void cadastrarAgenda() {
         Agenda agenda = new Agenda();
         System.out.print("Digite o CRM do médico: ");
@@ -88,7 +88,7 @@ public class CadastrarAgenda extends Menu {
         }
     }
 
-    // Método para mostrar as opções do menu de cadastro de prêmios
+    // Método para mostrar as opções do menu de cadastro de agenda
     @Override
     protected void mostrarOpcoes() {
         System.out.println("Bem vindo ao Menu para casdastrar a Agenda (Expediente) de trabalho dos médicos!");
