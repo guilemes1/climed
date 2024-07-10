@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.app.climed.Repository.EspecialidadeRepository;
 import com.app.climed.Repository.ConsultaRepository;
 
 import jakarta.persistence.Tuple;
@@ -17,9 +18,13 @@ public class ListarConsultas extends Menu {
 
     private Boolean runApp = true;
 
-    // Repositório para acessar a tabela Paciente
+    // Repositório para acessar a tabela Consulta
     @Autowired
     private ConsultaRepository consultaRepository;
+
+    // Repositório para acessar a tabela Especialidade
+    @Autowired
+    private EspecialidadeRepository especialidadeRepository;
 
     // Método para executar o menu de listagem de consultas
     @Override
@@ -44,6 +49,9 @@ public class ListarConsultas extends Menu {
             case 2:
                 listarConsultasPorDiaEspecificado();
                 return true;
+            case 3:
+                listarConsultasPorEspecialidadeEspecificada();
+                return true;    
             default:
                 return true;
         }
@@ -65,7 +73,28 @@ public class ListarConsultas extends Menu {
         System.out.print("Digite a data da consulta desejada no formato dd/MM/yyyy: ");
         LocalDate date = lerDate();
         List<Tuple> consultas = consultaRepository.listarConsultasPorDia(date);
-        System.out.println("Listando todas as consultas ordenadas por data\n");
+        System.out.println("Listando todas as consultas ordenadas para o dia " + date + "\n");
+        System.out.println("ID | Nome paciente | Especialidade | Nome médico | Data | Hora inicio | Hora Fim");
+        for (Tuple consulta : consultas) {
+            System.out.println(consulta.get(0, Integer.class) + " | " + (consulta.get(1, String.class)) + " | " + (consulta.get(2, String.class)) + " | " + (consulta.get(3, String.class)) + " | " + (consulta.get(4, Date.class)) + " | " + (consulta.get(5, Time.class)) + " | " + (consulta.get(6, Time.class)));
+        }
+        System.out.print("\nPressione enter para continuar...");
+        lerString();
+    }
+
+    private void listarConsultasPorEspecialidadeEspecificada() {
+        List<Tuple> especialidades = especialidadeRepository.listarEspecialidades();
+        System.out.println("Listando todas as especialidades\n");
+        System.out.println("ID | Especialidade");
+        for (Tuple especialidade : especialidades) {
+            System.out.println(especialidade.get(0, Integer.class) + " | " + (especialidade.get(1, String.class)));
+        }
+
+        System.out.print("\nDigite o ID da especialidade desejada: ");
+        Integer idEspecialidade = lerInteger();
+        List<Tuple> consultas = consultaRepository.listarConsultasPorEspecialidade(idEspecialidade);
+
+        System.out.println("\nListando todas as consultas para a especialidade selecionada\n");
         System.out.println("ID | Nome paciente | Especialidade | Nome médico | Data | Hora inicio | Hora Fim");
         for (Tuple consulta : consultas) {
             System.out.println(consulta.get(0, Integer.class) + " | " + (consulta.get(1, String.class)) + " | " + (consulta.get(2, String.class)) + " | " + (consulta.get(3, String.class)) + " | " + (consulta.get(4, Date.class)) + " | " + (consulta.get(5, Time.class)) + " | " + (consulta.get(6, Time.class)));
